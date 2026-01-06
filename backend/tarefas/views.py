@@ -28,7 +28,7 @@ def create_tarefa(request):
 
   serializer = TarefaSerializer(data=new_tarefa)
 
-  if serializer.is_valid():
-    serializer.save()
+  serializer.is_valid(raise_exception=True)
+  serializer.save()
 
-    return Response(serializer.data, status=status.HTTP_201_CREATED)
+  return Response(serializer.data, status=status.HTTP_201_CREATED)
