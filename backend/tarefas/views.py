@@ -17,7 +17,18 @@ def get_all_tarefas(request):
 
   return Response(serializer.data)
 
-class TarefaViewSet(viewsets.ModelViewSet):
+# class TarefaViewSet(viewsets.ModelViewSet):
   
-  queryset = Tarefa.objects.all().order_by('-created_at') # queryset e serializer_class são nomes padroes procurados pelo framework para criar os metodos padroes
-  serializer_class = TarefaSerializer
+#   queryset = Tarefa.objects.all().order_by('-created_at') # queryset e serializer_class são nomes padroes procurados pelo framework para criar os metodos padroes
+#   serializer_class = TarefaSerializer
+
+@api_view(['POST'])
+def create_tarefa(request):
+  new_tarefa = request.data
+
+  serializer = TarefaSerializer(data=new_tarefa)
+
+  if serializer.is_valid():
+    serializer.save()
+
+    return Response(serializer.data, status=status.HTTP_201_CREATED)
