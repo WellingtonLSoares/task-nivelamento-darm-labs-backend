@@ -8,5 +8,6 @@ from . import views
 
 urlpatterns = [
   path('', views.get_all_tarefas, name='tarefas'),
-  path('create/', views.create_tarefa, name='create_tarefa')
+  path('create/', views.create_tarefa, name='create_tarefa'),
+  path('<int:id>/', views.get_tarefa_by_id, name='get_tarefa_by_id'),
 ]

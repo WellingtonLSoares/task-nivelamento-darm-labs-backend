@@ -32,3 +32,22 @@ def create_tarefa(request):
   serializer.save()
 
   return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+@api_view(['GET'])
+def get_tarefa_by_id(request, id):
+  try:
+    tarefa = Tarefa.objects.get(id=id)
+
+  except Tarefa.DoesNotExist:
+    return Response(
+      {
+        "erro": "Tarefa não encontrada",
+        "mensagem": f"Não existe nenhuma tarefa com o id {id}. Verifique o número digitado."
+      },
+      status=status.HTTP_404_NOT_FOUND
+    )
+
+  # Se achou, serializa e retorna
+  serializer = TarefaSerializer(tarefa)
+
+  return Response(serializer.data)
