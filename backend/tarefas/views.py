@@ -1,6 +1,8 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework import viewsets
+
 
 from .models import Tarefa
 from .serializers import TarefaSerializer
@@ -15,4 +17,7 @@ def get_all_tarefas(request):
 
   return Response(serializer.data)
 
-
+class TarefaViewSet(viewsets.ModelViewSet):
+  
+  queryset = Tarefa.objects.all().order_by('-created_at') # queryset e serializer_class são nomes padroes procurados pelo framework para criar os metodos padroes
+  serializer_class = TarefaSerializer
