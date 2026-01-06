@@ -13,6 +13,15 @@ import json
 @api_view(['GET'])
 def get_all_tarefas(request):
   tarefas = Tarefa.objects.all()
+
+  status_concluida = request.query_params.get('concluida')
+
+  if status_concluida is not None:
+    if status_concluida.lower() == 'true':
+      tarefas = tarefas.filter(concluida=True)
+    elif status_concluida.lower() == 'false':
+      tarefas = tarefas.filter(concluida=False)
+
   serializer = TarefaSerializer(tarefas, many=True)
 
   return Response(serializer.data)
