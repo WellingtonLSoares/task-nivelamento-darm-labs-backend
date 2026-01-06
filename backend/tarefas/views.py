@@ -22,7 +22,7 @@ def get_all_tarefas(request):
 #   queryset = Tarefa.objects.all().order_by('-created_at') # queryset e serializer_class são nomes padroes procurados pelo framework para criar os metodos padroes
 #   serializer_class = TarefaSerializer
 
-@api_view(['POST'])
+@api_view(['POST', 'GET'])
 def create_tarefa(request):
   new_tarefa = request.data
 
