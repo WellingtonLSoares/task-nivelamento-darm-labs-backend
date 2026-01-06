@@ -9,4 +9,4 @@ class Tarefa(models.Model):
   updated_at = models.DateTimeField(auto_now=True)
 
   def __str__(self):
-    return self.self.titulo
+    return self.titulo
