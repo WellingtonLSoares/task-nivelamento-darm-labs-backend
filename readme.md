@@ -20,8 +20,8 @@ Pré-requisitos: Python 3.10+ instalado.
 
 Clone o repositório: 
 ```bash 
-git clone https://github.com/seu-usuario/seu-repo.git 
-cd seu-repo
+git clone https://github.com/WellingtonLSoares/task-nivelamento-darm-labs
+cd task-nivelamento-darm-labs
 ```
 
 Crie e ative um ambiente virtual:
@@ -52,11 +52,12 @@ Inicie o servidor:
 python manage.py runserver
 ```
 ### Método,Rota,Descrição
-| Método | Rota                 | Descrição                          | 
-|--------|----------------------|------------------------------------| 
-| GET  | `/api/tarefas/`        | Lista todas as tarefas cadastradas | 
-| POST | `/api/tarefas/create/` | Cria uma nova tarefa               | 
-| GET  | `/admin/`              | Painel Administrativo do Django    |
+| Método | Rota                 | Descrição                           | 
+|--------|----------------------|------------------------------------ | 
+| GET  | `/api/tarefas/`        | Lista todas as tarefas cadastradas  |
+| GET  | `/api/tarefas/{id}`    | Lista uma tarefa com base no seu id |
+| POST | `/api/tarefas/create/` | Cria uma nova tarefa                | 
+| GET  | `/admin/`              | Painel Administrativo do Django     |
 
 ### Tecnologias
 - Python
