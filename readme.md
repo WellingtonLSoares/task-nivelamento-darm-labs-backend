@@ -4,6 +4,26 @@ API simples desenvolvida em Django e Django Rest Framework para gerenciamento de
 
 ## 🚀 Como Rodar
 
+Pré-requisitos: Python 3.10+ instalado.
+
+Clone o repositório: 
+```bash 
+git clone https://github.com/WellingtonLSoares/task-nivelamento-darm-labs-backend
+cd task-nivelamento-darm-labs-backend/backend
+```
+
+Crie o arquivo .env na raiz da pasta backend:
+Crie um arquivo chamado .env e cole o seguinte conteúdo:
+```
+SECRET_KEY=secret-key
+DEBUG=DEV
+
+POSTGRES_DB=sandbox_db
+POSTGRES_USER=sandbox_user
+POSTGRES_PASSWORD=sandbox_password
+POSTGRES_HOST=db
+```
+
 ### Opção 1: Usando Docker (Recomendado)
 
 Se você já tem o Docker instalado, basta rodar:
@@ -16,14 +36,6 @@ docker-compose up --build
 A API estará disponível em: http://localhost:8000
 
 ### Opção 2: Rodando Localmente (Python)
-Pré-requisitos: Python 3.10+ instalado.
-
-Clone o repositório: 
-```bash 
-git clone https://github.com/WellingtonLSoares/task-nivelamento-darm-labs
-cd task-nivelamento-darm-labs
-```
-
 Crie e ative um ambiente virtual:
 #### Windows
 ```bash
